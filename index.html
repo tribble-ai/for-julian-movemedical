@@ -3,491 +3,427 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tribble × Movemedical — Built for Julian Tiscareno</title>
+<meta name="description" content="A personalized, asset-led Tribble outreach page for Julian Tiscareno at Movemedical.">
+<title>Julian Tiscareno × Tribble — Movemedical Enablement Field Kit</title>
 <link rel="icon" href="https://tribble.ai/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;700&family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #0a1628;
-  --blue: #4a6fe8;
-  --teal: #14b8a6;
-  --white: #ffffff;
-  --light-bg: #f0f4ff;
-  --card-bg: #ffffff;
-  --text-muted: #64748b;
-  --gradient-start: #0a1628;
-  --gradient-end: #1a2d4d;
+  --ink: #101010;
+  --paper: #fbfaf6;
+  --card: #ffffff;
+  --muted: #68665f;
+  --line: #dfd8cb;
+  --marigold: #f1b433;
+  --clay: #c96d3c;
+  --olive: #576146;
+  --forest: #1e3b2d;
+  --smoke: #f2efe7;
+  --tribble: #6b5cff;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; color: var(--navy); line-height: 1.6; background: var(--white); }
-h1, h2, h3, h4 { font-family: 'Fraunces', serif; }
-.stat-num { font-family: 'Space Grotesk', sans-serif; }
-
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 60%, #1e3a5f 100%);
-  color: var(--white);
-  padding: 80px 24px 100px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(74,111,232,0.15) 0%, transparent 70%);
-  border-radius: 50%;
+a { color: inherit; }
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px clamp(20px, 5vw, 64px);
+  background: rgba(251,250,246,.88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
 }
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
-.hero-badge {
-  display: inline-block;
-  background: rgba(74,111,232,0.2);
-  border: 1px solid rgba(74,111,232,0.4);
-  border-radius: 100px;
-  padding: 8px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  color: #93b4ff;
-}
-.hero h1 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-.hero h1 span { color: var(--teal); }
-.hero p {
-  font-size: 1.15rem;
-  color: rgba(255,255,255,0.8);
-  max-width: 620px;
-  margin: 0 auto 36px;
-}
-.cta-btn {
-  display: inline-block;
-  background: var(--teal);
-  color: var(--white);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 14px 36px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s;
-  box-shadow: 0 4px 14px rgba(20,184,166,0.3);
-}
-.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(20,184,166,0.4); }
-.cta-btn-outline {
-  display: inline-block;
-  border: 2px solid rgba(255,255,255,0.3);
-  color: var(--white);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 12px 32px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-left: 12px;
-  transition: all 0.2s;
-}
-.cta-btn-outline:hover { border-color: var(--teal); color: var(--teal); }
-
-/* SECTIONS */
-section { padding: 80px 24px; }
-.container { max-width: 960px; margin: 0 auto; }
-.section-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 12px;
-}
-.section-title {
-  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-  font-weight: 700;
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-.section-desc {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  max-width: 640px;
-  margin-bottom: 48px;
-}
-
-/* CONTEXT SECTION */
-.context-section { background: var(--light-bg); }
-.context-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-@media (max-width: 640px) { .context-grid { grid-template-columns: 1fr; } }
-.context-card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 28px;
-  border: 1px solid #e2e8f0;
-  transition: box-shadow 0.2s;
-}
-.context-card:hover { box-shadow: 0 8px 30px rgba(10,22,40,0.08); }
-.context-card h4 { font-size: 1.05rem; margin-bottom: 8px; color: var(--navy); }
-.context-card p { font-size: 0.95rem; color: var(--text-muted); }
-.context-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+.brand {
   display: flex;
   align-items: center;
+  gap: 10px;
+  font-family: 'Cabin', sans-serif;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, var(--marigold), var(--clay), var(--forest), var(--tribble), var(--marigold));
+  box-shadow: inset 0 0 0 7px var(--paper), 0 0 0 1px var(--ink);
+}
+.nav a.button, .button {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  font-size: 20px;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
 }
-.icon-blue { background: rgba(74,111,232,0.1); color: var(--blue); }
-.icon-teal { background: rgba(20,184,166,0.1); color: var(--teal); }
-
-/* PILLARS */
-.pillars-grid {
+.button:hover { transform: translateY(-2px); box-shadow: 6px 6px 0 var(--marigold); }
+.button.secondary { background: transparent; color: var(--ink); }
+.button.secondary:hover { background: var(--paper); }
+.hero {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-@media (max-width: 768px) { .pillars-grid { grid-template-columns: 1fr; } }
-.pillar-card {
-  background: var(--card-bg);
-  border-radius: 14px;
-  padding: 32px 28px;
-  border: 1px solid #e2e8f0;
-  position: relative;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  gap: clamp(36px, 6vw, 80px);
+  min-height: calc(100vh - 81px);
+  padding: clamp(54px, 8vw, 110px) clamp(20px, 5vw, 64px) 56px;
+  border-bottom: 1px solid var(--line);
   overflow: hidden;
-  transition: all 0.3s;
 }
-.pillar-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(10,22,40,0.1); }
-.pillar-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
+.eyebrow {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 22px;
+  padding: 8px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--marigold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
-.pillar-card:nth-child(1)::before { background: var(--blue); }
-.pillar-card:nth-child(2)::before { background: var(--teal); }
-.pillar-card:nth-child(3)::before { background: #8b5cf6; }
-.pillar-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  opacity: 0.08;
-  position: absolute;
-  top: 16px;
-  right: 20px;
+h1, h2, h3, h4 { font-family: 'Cabin', sans-serif; line-height: 1.04; }
+h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(46px, 8vw, 116px);
+  letter-spacing: -.06em;
+  text-transform: uppercase;
 }
-.pillar-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-.pillar-card p { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; }
-.pillar-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.pillar-tag {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 100px;
-  background: var(--light-bg);
-  color: var(--blue);
-}
-
-/* STATS */
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
-}
-@media (max-width: 640px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
-.stat-block { padding: 24px 12px; }
-.stat-num {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--blue);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-/* USE CASES */
-.usecase-section { background: var(--navy); color: var(--white); }
-.usecase-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-@media (max-width: 640px) { .usecase-grid { grid-template-columns: 1fr; } }
-.usecase-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 24px;
-  transition: all 0.2s;
-}
-.usecase-card:hover { background: rgba(255,255,255,0.08); border-color: var(--teal); }
-.usecase-card h4 { font-size: 1rem; margin-bottom: 6px; color: var(--white); font-family: 'Inter', sans-serif; font-weight: 600; }
-.usecase-card p { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
-.usecase-emoji { font-size: 1.4rem; margin-bottom: 12px; display: block; }
-
-/* QUOTE */
-.quote-section {
-  background: linear-gradient(135deg, var(--blue) 0%, #3b5ede 100%);
-  color: var(--white);
-  text-align: center;
-  padding: 64px 24px;
-}
-.quote-text {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-style: italic;
+.hero-copy {
   max-width: 700px;
-  margin: 0 auto 16px;
-  line-height: 1.5;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(17px, 2vw, 22px);
 }
-.quote-attr {
-  font-size: 0.9rem;
-  opacity: 0.8;
+.hero-copy strong { color: var(--ink); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.hero-card {
+  align-self: center;
+  position: relative;
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  background: var(--card);
+  box-shadow: 14px 14px 0 var(--ink);
 }
-
-/* CTA FINAL */
-.cta-final {
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: -26px -34px auto auto;
+  width: 164px;
+  height: 164px;
+  border-radius: 999px;
+  background: var(--marigold);
+  z-index: -1;
+}
+.card-label { margin: 0 0 18px; color: var(--muted); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.asset-title { margin: 0 0 14px; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.04em; }
+.asset-list { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+.asset-list li { display: grid; grid-template-columns: 38px 1fr; gap: 12px; align-items: start; }
+.asset-list span { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--ink); border-radius: 50%; background: var(--smoke); font-weight: 800; }
+.marquee {
+  border-block: 1px solid var(--ink);
+  background: var(--forest);
+  color: var(--paper);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-block;
+  padding: 14px 0;
+  animation: marquee 26s linear infinite;
+  font-family: 'Cabin', sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 28px);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.marquee-track span { margin-right: 34px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.section { padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); }
+.section-inner { max-width: 1160px; margin: 0 auto; }
+.section-head {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 32px;
+  align-items: end;
+  margin-bottom: 34px;
+}
+h2 { margin: 0; font-size: clamp(36px, 6vw, 76px); letter-spacing: -.05em; text-transform: uppercase; }
+.lede { margin: 0; color: var(--muted); font-size: 18px; }
+.grid-4, .grid-3, .grid-2 { display: grid; gap: 20px; }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tile {
+  position: relative;
+  padding: 24px;
+  min-height: 230px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--card);
+}
+.tile.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.tile.gold { background: var(--marigold); border-color: var(--ink); }
+.tile.green { background: #e7eadf; border-color: var(--olive); }
+.tile h3 { margin: 0 0 14px; font-size: 25px; letter-spacing: -.03em; }
+.tile p { margin: 0; color: var(--muted); }
+.tile.dark p { color: rgba(251,250,246,.72); }
+.number {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-weight: 800;
+}
+.checklist { padding: 0; margin: 18px 0 0; list-style: none; display: grid; gap: 10px; }
+.checklist li { padding-left: 27px; position: relative; }
+.checklist li::before { content: "✦"; position: absolute; left: 0; color: var(--clay); font-weight: 800; }
+.playbook {
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--card);
+}
+.playbook-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 24px;
+  padding: 26px;
+  border-bottom: 1px solid var(--line);
+}
+.playbook-row:last-child { border-bottom: 0; }
+.playbook-kicker { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); }
+.playbook h3 { margin: 0; font-size: 26px; letter-spacing: -.03em; }
+.playbook p { margin: 0; color: var(--muted); }
+.proof { background: var(--ink); color: var(--paper); }
+.proof .lede { color: rgba(251,250,246,.7); }
+.proof-card {
+  padding: 30px;
+  min-height: 270px;
+  border: 1px solid rgba(251,250,246,.2);
+  border-radius: 28px;
+  background: rgba(251,250,246,.06);
+}
+.proof-card h3 { margin: 0 0 14px; font-size: 30px; }
+.proof-card p { color: rgba(251,250,246,.7); }
+.quote {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 34px;
+  align-items: center;
+  padding: clamp(32px, 6vw, 56px);
+  border: 1px solid var(--ink);
+  border-radius: 34px;
+  background: var(--marigold);
+}
+.quote p { margin: 0; font-family: 'Cabin', sans-serif; font-size: clamp(28px, 5vw, 58px); line-height: 1.06; letter-spacing: -.04em; text-transform: uppercase; }
+.stamp {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--ink);
+  border-radius: 50%;
   text-align: center;
-  padding: 80px 24px;
-  background: var(--light-bg);
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: rotate(-8deg);
 }
-.cta-final .section-title { margin-bottom: 12px; }
-.cta-final .section-desc { margin: 0 auto 32px; text-align: center; }
-.cta-final .cta-btn { font-size: 1.1rem; padding: 16px 44px; }
-
-/* FOOTER */
-footer {
-  background: var(--navy);
-  color: rgba(255,255,255,0.5);
-  text-align: center;
-  padding: 32px 24px;
-  font-size: 0.85rem;
+.footer {
+  padding: 40px clamp(20px, 5vw, 64px);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
 }
-footer a { color: var(--teal); text-decoration: none; }
-
-/* ANIMATIONS */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.footer strong { color: var(--ink); }
+@media (max-width: 960px) {
+  .hero, .section-head, .quote { grid-template-columns: 1fr; }
+  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr 1fr; }
+  .playbook-row { grid-template-columns: 1fr; }
 }
-.animate { animation: fadeInUp 0.6s ease-out both; }
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
+@media (max-width: 640px) {
+  .nav { position: static; align-items: flex-start; flex-direction: column; }
+  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .hero-card { box-shadow: 8px 8px 0 var(--ink); }
+  h1 { font-size: 42px; }
+}
+@media print {
+  .nav, .button, .marquee { display: none !important; }
+  body { background: white; }
+  .section, .hero { padding: 28px; min-height: 0; }
+  .hero-card, .quote, .playbook, .tile { box-shadow: none; break-inside: avoid; }
+}
 </style>
 </head>
 <body>
+<nav class="nav" aria-label="Primary">
+  <div class="brand"><span class="brand-mark" aria-hidden="true"></span> Tribble × Movemedical</div>
+  <a class="button" href="https://tribble.ai/demo">Connect with us here →</a>
+</nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge animate">Prepared exclusively for Julian Tiscareno</div>
-    <h1 class="animate delay-1">What if Movemedical's sales enablement<br><span>ran on AI that actually knows your business?</span></h1>
-    <p class="animate delay-2">Julian — you're building enablement for a team that navigates the most complex supply chain in healthcare. We built the AI platform that turns institutional knowledge into a competitive weapon. Here's what that looks like for Movemedical.</p>
-    <div class="animate delay-3">
-      <a href="https://tribble.ai/demo" class="cta-btn">Book a 15-min demo →</a>
-      <a href="#pillars" class="cta-btn-outline">See the fit ↓</a>
+<header class="hero">
+  <div>
+    <p class="eyebrow">Prepared for Julian Tiscareno • Solutions Engineer & Enablement Lead</p>
+    <h1>Sales enablement delivered with field precision.</h1>
+    <p class="hero-copy">Julian, Movemedical already makes the MedTech last mile feel coordinated. This is the companion asset: a <strong>source-grounded AI enablement field kit</strong> that helps sales, solutions, support, and RFP teams answer faster without drifting from product truth.</p>
+    <div class="cta-row">
+      <a class="button" href="#field-kit">Open the field kit ↓</a>
+      <a class="button secondary" href="https://tribble.ai/demo">Book 15 minutes</a>
+    </div>
+  </div>
+  <aside class="hero-card" aria-label="Personalized asset concept">
+    <p class="card-label">Creative asset-led outreach concept</p>
+    <h2 class="asset-title">The Movemedical AI Enablement Readiness Map</h2>
+    <p>Instead of sending a cold “can I get 15 minutes?” email, lead with a useful artifact Julian can react to: a mapped set of workflows, prompts, and review gates for making Movemedical’s product knowledge usable in the moments that win deals.</p>
+    <ul class="asset-list">
+      <li><span>1</span><div><strong>Rep-call brief.</strong><br>Persona-specific prep for Sales, Ops, IT, Hospital Staff, and Customer Support conversations.</div></li>
+      <li><span>2</span><div><strong>RFP answer path.</strong><br>Source-cited draft → compliance review → final answer, without copy/paste archaeology.</div></li>
+      <li><span>3</span><div><strong>Onboarding sprint.</strong><br>Turn product docs, implementation notes, and customer proof into a searchable SE coach.</div></li>
+    </ul>
+  </aside>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Field inventory</span><span>Sales enablement</span><span>RFP automation</span><span>Source-grounded AI</span><span>SE onboarding</span><span>Real-time product truth</span>
+    <span>Field inventory</span><span>Sales enablement</span><span>RFP automation</span><span>Source-grounded AI</span><span>SE onboarding</span><span>Real-time product truth</span>
+  </div>
+</div>
+
+<section class="section" id="field-kit">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Why this fits Movemedical now</h2>
+      <p class="lede">Movemedical’s public materials describe a complex, multi-persona platform for sales, operations, IT, logistics, customer support, and hospital teams. That’s exactly where enablement content fragments — and where Tribble is useful.</p>
+    </div>
+    <div class="grid-4">
+      <article class="tile gold">
+        <span class="number">01</span>
+        <h3>Many audiences, one truth</h3>
+        <p>Turn the same product facts into buyer-ready language for Sales Leaders, Ops, Customer Support, Hospital Staff, and IT.</p>
+      </article>
+      <article class="tile">
+        <span class="number">02</span>
+        <h3>Fast-moving product proof</h3>
+        <p>Keep capabilities like Future Stock, Atomic Stock, Native RFID, and Analytic Insights connected to the latest approved explanations.</p>
+      </article>
+      <article class="tile green">
+        <span class="number">03</span>
+        <h3>High-stakes review</h3>
+        <p>For healthcare procurement, every claim needs provenance. The workflow should make source citation default, not heroic.</p>
+      </article>
+      <article class="tile dark">
+        <span class="number">04</span>
+        <h3>Enablement lead leverage</h3>
+        <p>Julian’s role sits at the handoff point: make expertise reusable without making every rep wait for a Slack answer.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- WHY THIS MATTERS FOR MOVEMEDICAL -->
-<section class="context-section">
-  <div class="container">
-    <div class="section-label">Why this matters</div>
-    <h2 class="section-title">We did our homework on Movemedical</h2>
-    <p class="section-desc">Your platform turns last-mile waste into revenue for MedTech. The enablement challenge: arming your sales and solutions teams to articulate that story across dozens of personas — fast, accurately, every time.</p>
-    <div class="context-grid">
-      <div class="context-card animate">
-        <div class="context-icon icon-blue">📋</div>
-        <h4>Complex product, many buyers</h4>
-        <p>Movemedical sells to manufacturers AND hospitals — OR directors, supply chain VPs, IT heads, reps. Each needs a different story from the same truth.</p>
-      </div>
-      <div class="context-card animate delay-1">
-        <div class="context-icon icon-teal">⚡</div>
-        <h4>Enablement at the speed of MedTech</h4>
-        <p>New features like Future Stock and Native RFID ship fast. Your solutions engineers need current, compliant talking points — not last quarter's deck.</p>
-      </div>
-      <div class="context-card animate delay-2">
-        <div class="context-icon icon-blue">🔒</div>
-        <h4>Regulated, high-stakes responses</h4>
-        <p>Security questionnaires, RFIs, and vendor assessments from hospital systems are high-friction, high-consequence. One wrong claim costs the deal.</p>
-      </div>
-      <div class="context-card animate delay-3">
-        <div class="context-icon icon-teal">📊</div>
-        <h4>Data-heavy value story</h4>
-        <p>500+ data tables, real-time analytics, ML-powered planning. The ROI is there — but your team has to prove it on every call, in every RFP response.</p>
-      </div>
+<section class="section" style="background: var(--smoke);">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>What Tribble would ship first</h2>
+      <p class="lede">A short pilot should feel like a useful internal asset, not a vendor demo. Here’s the proposed “field kit” structure.</p>
     </div>
-  </div>
-</section>
-
-<!-- THREE PILLARS -->
-<section id="pillars">
-  <div class="container">
-    <div class="section-label">The Tribble platform</div>
-    <h2 class="section-title">Three pillars, one knowledge engine</h2>
-    <p class="section-desc">We're not another chatbot bolted onto your CRM. Tribble is a compound AI system that ingests your entire knowledge base and turns it into three high-leverage surfaces.</p>
-    <div class="pillars-grid">
-      <div class="pillar-card animate">
-        <div class="pillar-number">01</div>
-        <h3>AI Knowledge Base</h3>
-        <p>Every product doc, case study, compliance cert, and competitive brief — ingested, structured, and queryable. Your solutions engineers get sourced, cited answers in seconds.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">Instant answers</span>
-          <span class="pillar-tag">Source-cited</span>
-          <span class="pillar-tag">Always current</span>
-        </div>
+    <div class="playbook">
+      <div class="playbook-row">
+        <div><div class="playbook-kicker">Asset 01</div><h3>SE call intelligence brief</h3></div>
+        <p><strong>Input:</strong> account notes, buyer persona, opportunity stage, approved product docs.</p>
+        <p><strong>Output:</strong> crisp talking points, risk flags, discovery questions, and proof snippets tied back to Movemedical sources.</p>
       </div>
-      <div class="pillar-card animate delay-1">
-        <div class="pillar-number">02</div>
-        <h3>AI Sales Agents</h3>
-        <p>An AI teammate for every rep. Meeting prep, competitive intel, persona-tailored talking points — all grounded in Movemedical's actual product truth.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">Meeting prep</span>
-          <span class="pillar-tag">Competitive intel</span>
-          <span class="pillar-tag">Rep coaching</span>
-        </div>
+      <div class="playbook-row">
+        <div><div class="playbook-kicker">Asset 02</div><h3>Healthcare RFP answer console</h3></div>
+        <p><strong>Input:</strong> security docs, implementation details, platform FAQs, customer proof.</p>
+        <p><strong>Output:</strong> draft answers with citations, “needs human review” flags, and reusable approved language.</p>
       </div>
-      <div class="pillar-card animate delay-2">
-        <div class="pillar-number">03</div>
-        <h3>AI Proposal Automation</h3>
-        <p>RFPs, DDQs, security questionnaires, vendor assessments — generated from your knowledge base with enterprise-grade accuracy. Your team reviews, not writes.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">RFP / DDQ</span>
-          <span class="pillar-tag">Security Q's</span>
-          <span class="pillar-tag">80% faster</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section style="background: var(--light-bg);">
-  <div class="container">
-    <div class="stats-row">
-      <div class="stat-block animate">
-        <div class="stat-num">96%</div>
-        <div class="stat-label">Gross retention rate</div>
-      </div>
-      <div class="stat-block animate delay-1">
-        <div class="stat-num">80%</div>
-        <div class="stat-label">Faster proposal turnaround</div>
-      </div>
-      <div class="stat-block animate delay-2">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Enterprise customers</div>
-      </div>
-      <div class="stat-block animate delay-3">
-        <div class="stat-num">3x</div>
-        <div class="stat-label">More RFPs per team</div>
+      <div class="playbook-row">
+        <div><div class="playbook-kicker">Asset 03</div><h3>New-hire enablement coach</h3></div>
+        <p><strong>Input:</strong> training guides, videos, release notes, battlecards, and implementation patterns.</p>
+        <p><strong>Output:</strong> a searchable coach that answers like a senior SE and links to source material.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- USE CASES FOR MOVEMEDICAL -->
-<section class="usecase-section">
-  <div class="container">
-    <div class="section-label" style="color: var(--teal);">Movemedical use cases</div>
-    <h2 class="section-title" style="color: var(--white);">What Julian's team could do on day one</h2>
-    <p class="section-desc" style="color: rgba(255,255,255,0.65); margin-bottom: 36px;">These aren't hypotheticals — they map directly to what we learned about Movemedical's product and go-to-market.</p>
-    <div class="usecase-grid">
-      <div class="usecase-card animate">
-        <span class="usecase-emoji">🏥</span>
-        <h4>Hospital System RFP Response</h4>
-        <p>Auto-generate compliant, source-cited responses to hospital procurement questionnaires — pulling from Movemedical's actual product specs, security posture, and integration capabilities.</p>
-      </div>
-      <div class="usecase-card animate delay-1">
-        <span class="usecase-emoji">🎯</span>
-        <h4>Persona-Tailored Enablement</h4>
-        <p>Solutions engineers get auto-generated briefs for every call: OR director gets clinical workflow impact, supply chain VP gets ROI and waste reduction, IT gets cloud-native architecture and RFID specs.</p>
-      </div>
-      <div class="usecase-card animate delay-2">
-        <span class="usecase-emoji">⚔️</span>
-        <h4>Competitive Battle Cards — Live</h4>
-        <p>Instead of static decks that go stale, Tribble surfaces live competitive intelligence grounded in your differentiation: Future Stock ML, atomic stock tracking, native RFID — always current.</p>
-      </div>
-      <div class="usecase-card animate delay-3">
-        <span class="usecase-emoji">📚</span>
-        <h4>New Rep Onboarding in Days</h4>
-        <p>Feed Tribble the entire Movemedical knowledge corpus — new reps query it like a senior SE. "How does our courier integration work with Stryker's ERP?" — cited answer in 5 seconds.</p>
-      </div>
+<section class="section proof">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Day-one demo prompts</h2>
+      <p class="lede">These are the prompts I’d put directly in front of Julian, because they map to his Solutions Engineer + Enablement surface area.</p>
+    </div>
+    <div class="grid-3">
+      <article class="proof-card">
+        <h3>“Prep me for a hospital IT review.”</h3>
+        <p>Generate architecture, security, integration, and adoption talking points with citations and gaps to confirm.</p>
+      </article>
+      <article class="proof-card">
+        <h3>“Rewrite this for an Ops VP.”</h3>
+        <p>Translate a technical product explanation into operations outcomes: visibility, automation, waste reduction, and control.</p>
+      </article>
+      <article class="proof-card">
+        <h3>“Answer this questionnaire safely.”</h3>
+        <p>Draft a response, show supporting sources, and flag anything that requires legal, compliance, or product review.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- QUOTE -->
-<section class="quote-section">
-  <div class="container">
-    <p class="quote-text">"Most enterprise automation problems are actually knowledge retrieval and synthesis problems in disguise. Feed us your knowledge — the use cases solve themselves."</p>
-    <p class="quote-attr">— Tribble platform philosophy</p>
+<section class="section">
+  <div class="section-inner quote">
+    <p>Email is weak here. The move is LinkedIn-first: “I made you a one-page AI enablement map for Movemedical — worth pressure-testing?”</p>
+    <div class="stamp">Asset-led<br>not<br>spray-and-pray</div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="cta-final">
-  <div class="container">
-    <div class="section-label">Next step</div>
-    <h2 class="section-title">Let's make this real, Julian.</h2>
-    <p class="section-desc">A 15-minute call. We'll show you Tribble running against a sample MedTech knowledge base — so you can see exactly how it would work for Movemedical's team.</p>
-    <a href="https://tribble.ai/demo" class="cta-btn">Book your demo →</a>
+<section class="section" style="padding-top: 0;">
+  <div class="section-inner">
+    <div class="grid-2">
+      <article class="tile">
+        <h3>Suggested LinkedIn note</h3>
+        <p>Julian — noticed your work at the SE/enablement intersection for Movemedical. I put together a one-page AI enablement readiness map around MedTech RFPs, call prep, and onboarding. Not a generic pitch; it’s a concrete artifact. Open to me sending it over?</p>
+      </article>
+      <article class="tile green">
+        <h3>Suggested follow-up</h3>
+        <p>If useful, I can show a 15-minute version with a sample MedTech knowledge base: source-cited RFP answers, persona-specific call briefs, and an SE onboarding coach. If it’s off-base, you’ll know quickly.</p>
+        <ul class="checklist">
+          <li>Lead with the artifact, not the meeting ask.</li>
+          <li>Keep Movemedical references public and verifiable.</li>
+          <li>Avoid unsupported claims; ask for correction as the engagement hook.</li>
+        </ul>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>This page was built exclusively for Julian Tiscareno at Movemedical by <a href="https://tribble.ai">Tribble</a>.</p>
-  <p style="margin-top: 8px;">© 2026 Tribble, Inc. • <a href="https://tribble.ai">tribble.ai</a></p>
+<footer class="footer">
+  <p><strong>Built for Julian Tiscareno at Movemedical by Tribble.</strong> Design direction: a Promenade-inspired editorial landing page — large uppercase type, partner-style marquee, service-card rhythm, high-contrast CTA, and mission-forward footer energy.</p>
+  <p>Use this as a landing page or print-to-PDF concept. © 2026 Tribble, Inc.</p>
 </footer>
-
-<script>
-// Intersection Observer for scroll animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animationPlayState = 'running';
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.animate').forEach(el => {
-  el.style.animationPlayState = 'paused';
-  observer.observe(el);
-});
-</script>
-
 </body>
 </html>
